@@ -160,4 +160,4 @@ cython_debug/
 #.idea/
 tests/data_set
 tests/files
-data_set_csv_files/
+dataset_csv_files/
