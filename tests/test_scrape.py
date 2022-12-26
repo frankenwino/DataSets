@@ -23,12 +23,12 @@ def test_get_html():
     assert isinstance(html, str) is True
 
 
-def test_csv_links():
+def test_csv_gz_links():
     # Arrange
     s = Scraper()
 
     # Act
-    links = s.csv_links()
+    links = s.csv_gz_links()
     csv_gz_links = True
     for link in links:
         if not link.endswith(".csv.gz"):
