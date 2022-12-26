@@ -2,6 +2,7 @@ import pathlib
 import magic
 import os
 import gzip
+import utils
 
 
 class Extractor:
@@ -69,6 +70,7 @@ class Extractor:
             pathlib.Path or None: the exracted gzip file path or None is the archive is not a gzip file
         """
         if self.is_gzip():
+            utils.print_message(f"Extracting {self.archive_file_path}")
             ext_file_path = self.extracted_file_path()
             self.create_extract_dir()
             with open(self.archive_file_path, "rb") as inf, open(
@@ -76,6 +78,8 @@ class Extractor:
             ) as tof:
                 decom_str = gzip.decompress(inf.read()).decode("utf-8")
                 tof.write(decom_str)
+
+            utils.print_message(f"Extraction complete {ext_file_path}")
 
             return ext_file_path
         else:

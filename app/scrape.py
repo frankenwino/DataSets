@@ -18,8 +18,8 @@ class Scraper:
         r = requests.get(self.url)
         return r.text
 
-    def csv_links(self) -> list[str]:
-        """csv_links acquires csv links from self.url
+    def csv_gz_links(self) -> list[str]:
+        """csv_gz_links acquires csv links from self.url
 
         Returns:
             list[str]: a list of csv.gz file URLs

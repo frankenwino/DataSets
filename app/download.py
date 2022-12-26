@@ -2,6 +2,7 @@ import requests
 import shutil
 import pathlib
 from urllib.parse import urlparse
+import utils
 
 
 class Downloader:
@@ -36,8 +37,10 @@ class Downloader:
         """
         self.create_download_dir()
         dl_file_path = self.download_file_path()
+        utils.print_message(f"Downloading {self.url}")
         with requests.get(self.url, stream=True) as r:
             with open(dl_file_path, "wb") as f:
                 shutil.copyfileobj(r.raw, f)
+        utils.print_message(f"Download complete {dl_file_path}")
 
         return dl_file_path
